@@ -2316,6 +2316,8 @@ nvme_namespace_info_json(struct spdk_json_write_ctx *w,
 
 	spdk_json_write_object_end(w);
 
+	nsdata = spdk_nvme_ns_get_data(ns);
+
 	spdk_json_write_named_object_begin(w, "ns_data");
 
 	spdk_json_write_named_uint32(w, "id", spdk_nvme_ns_get_id(ns));
