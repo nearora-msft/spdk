@@ -2300,6 +2300,9 @@ nvme_namespace_info_json(struct spdk_json_write_ctx *w,
 
 	spdk_json_write_object_end(w);
 
+	spdk_json_write_named_bool(w, "multi_ctrlr", cdata->cmic.multi_ctrlr);
+	spdk_json_write_named_bool(w, "ana_reporting", cdata->cmic.ana_reporting);
+
 	spdk_json_write_object_end(w);
 
 	spdk_json_write_named_object_begin(w, "vs");
@@ -2322,6 +2325,7 @@ nvme_namespace_info_json(struct spdk_json_write_ctx *w,
 					     _nvme_ana_state_str(nvme_ns->ana_state));
 	}
 
+	spdk_json_write_named_bool(w, "can_share", nsdata->nmic.can_share);
 	spdk_json_write_object_end(w);
 
 	if (cdata->oacs.security) {
