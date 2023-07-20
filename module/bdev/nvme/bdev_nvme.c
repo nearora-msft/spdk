@@ -2239,6 +2239,7 @@ nvme_namespace_info_json(struct spdk_json_write_ctx *w,
 	const struct spdk_nvme_ctrlr_data *cdata;
 	const struct spdk_nvme_transport_id *trid;
 	union spdk_nvme_vs_register vs;
+	const struct spdk_nvme_ns_data *nsdata;
 	char buf[128];
 
 	ns = nvme_ns->ns;
